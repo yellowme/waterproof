@@ -1,8 +1,14 @@
 package mx.yellowme.waterproof;
 
-/**
- * Created by migdonio on 7/27/17.
- */
-
 public interface BaseView {
+    void setProgressIndicator(boolean active);
+
+    void display(String message);
+
+    void display(String message, MessageAction action);
+
+    interface MessageAction {
+        void execute();
+        String getTitle();
+    }
 }
