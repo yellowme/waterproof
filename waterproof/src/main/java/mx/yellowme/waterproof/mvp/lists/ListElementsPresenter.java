@@ -1,6 +1,6 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof.mvp.lists;
 
-import mx.yellowme.waterproof.BasePresenter;
+import mx.yellowme.waterproof.mvp.BasePresenter;
 
 public class ListElementsPresenter<Model>
         extends BasePresenter<ListElementsContract.View<Model>>

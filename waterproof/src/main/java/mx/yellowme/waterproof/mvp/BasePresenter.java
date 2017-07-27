@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof;
+package mx.yellowme.waterproof.mvp;
 
 /**
  * Base class for common presenters that frequently uses {@link BaseView}

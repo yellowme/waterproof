@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof.mvp.lists;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

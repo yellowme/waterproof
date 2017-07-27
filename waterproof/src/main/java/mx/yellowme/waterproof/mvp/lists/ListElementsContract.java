@@ -1,8 +1,8 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof.mvp.lists;
 
 import java.util.List;
 
-import mx.yellowme.waterproof.BaseView;
+import mx.yellowme.waterproof.mvp.BaseView;
 
 public interface ListElementsContract<Model> {
 

@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof;
+package mx.yellowme.waterproof.mvp;
 
 public interface BaseView {
     void setProgressIndicator(boolean active);

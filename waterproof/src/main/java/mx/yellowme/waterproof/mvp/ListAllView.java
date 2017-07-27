@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof;
+package mx.yellowme.waterproof.mvp;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof;
 
 import android.support.v4.app.Fragment;
 

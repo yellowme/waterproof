@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof.mvp.lists;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

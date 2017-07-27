@@ -1,4 +1,4 @@
-package mx.yellowme.waterproof.lists;
+package mx.yellowme.waterproof.mvp.lists;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import mx.yellowme.waterproof.R;
+import mx.yellowme.waterproof.WaterproofFragment;
 
 public abstract class ListElementsFragment<Model, ItemViewHolder extends RecyclerView.ViewHolder>
     extends WaterproofFragment
