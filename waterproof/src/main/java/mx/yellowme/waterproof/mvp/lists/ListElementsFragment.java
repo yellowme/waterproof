@@ -2,6 +2,7 @@ package mx.yellowme.waterproof.mvp.lists;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,9 +21,10 @@ import mx.yellowme.waterproof.WaterproofFragment;
 
 public abstract class ListElementsFragment<Model, ItemViewHolder extends RecyclerView.ViewHolder>
     extends WaterproofFragment
-            implements ListElementsContract.View<Model> {
+            implements ListAllView<Model> {
 
-    protected ListElementsContract.Presenter<Model> mActionsListener;
+    //TODO: Verify INITIALIZE concrete presenter
+    protected ListElementsPresenter<Model> mActionsListener;
     protected ListAdapter<Model, ItemViewHolder> mAdapter;
     protected LinearLayoutManager mLayoutManager;
 
@@ -32,11 +35,41 @@ public abstract class ListElementsFragment<Model, ItemViewHolder extends Recycle
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupAdapter();
+        mActionsListener = getPresenter();
     }
+
+    public abstract ListElementsPresenter<Model> getPresenter();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void display(String message, MessageAction action) {
+        if (action == null) {
+            realMessenger.setStrategy(new MessageNotifierStrategy() {
+                @Override
+                public void showMessage(View view, String message, MessageAction action) {
+                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                }
+            });
+        } else {
+            realMessenger.setStrategy(new MessageNotifierStrategy() {
+                @Override
+                public void showMessage(View view, String message, final MessageAction action) {
+                    Snackbar sn = Snackbar.make(view, message, Snackbar.LENGTH_LONG);
+                    sn.setAction("Action", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            action.execute();
+                        }
+                    });
+                }
+            });
+        }
+
+        realMessenger.deliver(getView(), message, action);
     }
 
     @Override
@@ -57,7 +90,6 @@ public abstract class ListElementsFragment<Model, ItemViewHolder extends Recycle
 
     @Override
     public void setEmptyListState(boolean isEmpty) {
-        //Log.d(TAG, "Change view elements visible");
         if(isEmpty){
             mRecyclerView.setVisibility(View.GONE);
             mEmptyState.setVisibility(View.VISIBLE);
@@ -143,7 +175,7 @@ public abstract class ListElementsFragment<Model, ItemViewHolder extends Recycle
     protected ItemListener<Model> mItemListener = new ItemListener<Model>() {
         @Override
         public void onItemClick(Model clickedElement) {
-            mActionsListener.openElement(clickedElement);
+            mActionsListener.open(clickedElement);
         }
     };
 

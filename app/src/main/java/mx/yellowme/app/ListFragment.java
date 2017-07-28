@@ -1,24 +1,44 @@
 package mx.yellowme.app;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import mx.yellowme.waterproof.WaterproofFragment;
+import mx.yellowme.waterproof.mvp.lists.ListElementsFragment;
+import mx.yellowme.waterproof.mvp.lists.ListElementsPresenter;
 
 
 public class ListFragment
-        extends WaterproofFragment {
+        extends ListElementsFragment<ListFragment.MyModel, ListFragment.MyViewHolder> {
 
     public ListFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public int getMainLayoutResource() {
-        return 0;
+    public ListElementsPresenter<MyModel> getPresenter() {
+        return new ListPresenter(
+                this
+        );
     }
 
     @Override
-    public void bindViews(View root) {
+    protected void setupAdapter() {
+        //TODO: Create ADAPTER extending LIST ADAPTER
+    }
 
+    @Override
+    protected String getEmptyListMessage() {
+        return null;
+    }
+
+    public static class MyModel {
+
+    }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 }

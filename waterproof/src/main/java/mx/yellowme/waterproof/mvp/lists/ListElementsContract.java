@@ -4,7 +4,7 @@ import java.util.List;
 
 import mx.yellowme.waterproof.mvp.BaseView;
 
-public interface ListElementsContract<Model> {
+public interface ListElementsContract {
 
     interface View<Model> extends BaseView {
 
