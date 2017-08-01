@@ -19,7 +19,7 @@ import java.util.List;
 import mx.yellowme.waterproof.R;
 import mx.yellowme.waterproof.WaterproofFragment;
 
-public abstract class ListElementsFragment<Model, ItemViewHolder extends RecyclerView.ViewHolder>
+public abstract class ListWaterproofFragment<Model, ItemViewHolder extends RecyclerView.ViewHolder>
     extends WaterproofFragment
             implements ListAllView<Model> {
 

@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import mx.yellowme.waterproof.mvp.BaseAdapter;
+
 import static mx.yellowme.waterproof.WaterproofConditions.checkNotNull;
 
 /**
@@ -13,7 +15,8 @@ import static mx.yellowme.waterproof.WaterproofConditions.checkNotNull;
  * is necessary to implement a Custom ViewHolder over which the adapter is going to operate.
  */
 public abstract class ListAdapter<Item, CustomViewHolder extends RecyclerView.ViewHolder>
-        extends RecyclerView.Adapter<CustomViewHolder>  {
+        extends RecyclerView.Adapter<CustomViewHolder>
+        implements BaseAdapter {
 
     protected List<Item> mItemList;
     protected Context mContext;

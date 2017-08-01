@@ -3,12 +3,12 @@ package mx.yellowme.app;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import mx.yellowme.waterproof.mvp.lists.ListElementsFragment;
+import mx.yellowme.waterproof.mvp.lists.ListWaterproofFragment;
 import mx.yellowme.waterproof.mvp.lists.ListElementsPresenter;
 
 
 public class ListFragment
-        extends ListElementsFragment<ListFragment.MyModel, ListFragment.MyViewHolder> {
+        extends ListWaterproofFragment<ListFragment.MyModel, ListFragment.MyViewHolder> {
 
     public ListFragment() {
         // Required empty public constructor
