@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,36 +14,24 @@ import android.widget.Toast;
 
 import mx.yellowme.waterproof.R;
 import mx.yellowme.waterproof.WaterproofFragment;
+import mx.yellowme.waterproof.mvp.WaterproofViewHolder;
 
-public abstract class SimpleWaterproofFragment<Model>
+public abstract class SimpleWaterproofFragment<Model, ItemViewHolder extends WaterproofViewHolder>
         extends WaterproofFragment
-        implements SimpleView<Model>{
+        implements SimpleView<Model> {
 
+    public ItemViewHolder mViewHolder;
     private RelativeLayout mEmptyState;
 
     protected SimplePresenter<Model> mActionsListener;
-    protected SimpleAdapter<Model> mAdapter;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setupAdapter();
-        mActionsListener = getPresenter();
-        /*setupActionListener();*/
-    }
-
-    public abstract SimplePresenter<Model> getPresenter();
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+    protected SimpleAdapter<Model, ItemViewHolder> mAdapter;
 
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("holis final swf", "onResume");
         mActionsListener.loadElement(true);
+        mAdapter.refreshView();
     }
 
     @Override
@@ -94,13 +83,16 @@ public abstract class SimpleWaterproofFragment<Model>
     }
 
     @Override
-    public int getMainLayoutResource() {
-        return R.layout.waterproof_simple_fragment;
+    public void setupView(View root) {
+        super.setupView(root);
+        setupEmptyStateContainer(root);
     }
 
     @Override
     public void bindViews(View root) {
-        setupEmptyStateContainer(root);
+        mActionsListener = getPresenter();
+        mViewHolder = getConcreteItemViewHolder(root);
+        setupAdapter();
     }
 
     @Override
@@ -119,13 +111,17 @@ public abstract class SimpleWaterproofFragment<Model>
 
     public void setupEmptyStateContainer(View root) {
         mEmptyState = root.findViewById(R.id.emptyStateContainer);
-        if(getEmptyListMessage() != null){
+        if(mEmptyState != null && getEmptyListMessage() != null){
             ((TextView) mEmptyState.findViewById(R.id.wpEmptyStateMessage)).setText(
                     getEmptyListMessage()
             );
         }
     }
 
+    public abstract SimplePresenter<Model> getPresenter();
+
     protected abstract void setupAdapter();
     protected abstract String getEmptyListMessage();
+
+    public abstract ItemViewHolder getConcreteItemViewHolder(View root);
 }

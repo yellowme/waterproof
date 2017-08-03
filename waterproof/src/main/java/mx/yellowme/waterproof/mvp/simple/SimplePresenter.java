@@ -9,6 +9,4 @@ public abstract class SimplePresenter<Model> extends BasePresenter<SimpleView<Mo
     }
 
     public abstract void loadElement(boolean forceUpdate);
-    public abstract void updateElement(boolean forceUpdate);
-    public abstract void deleteElement(boolean forceUpdate);
 }
