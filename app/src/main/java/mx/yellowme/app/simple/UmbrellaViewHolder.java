@@ -1,7 +1,6 @@
 package mx.yellowme.app.simple;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,14 +17,7 @@ public class UmbrellaViewHolder implements WaterproofViewHolder {
     TextView umbrellaPriceTextView;
 
     UmbrellaViewHolder(Context context, View rootView) {
-
-        Log.d("holisadapter", String.valueOf(context));
-        Log.d("holisadapter", String.valueOf(rootView));
-        Log.d("holis", "holis bolis");
-
         umbrellaColorTextView = rootView.findViewById(R.id.umbrellaColorTextView);
         umbrellaPriceTextView = rootView.findViewById(R.id.umbrellaPriceTextView);
-        Log.d("holis", String.valueOf(umbrellaColorTextView.getText()));
-        Log.d("holis", String.valueOf(umbrellaPriceTextView));
     }
 }

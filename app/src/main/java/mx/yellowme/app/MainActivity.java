@@ -20,16 +20,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         example1 = (Button) findViewById(R.id.example1);
-        example1.setOnClickListener(new View.OnClickListener(){
+
+        example2 = (Button) findViewById(R.id.example2);
+        example2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent().setClass(getApplicationContext(), UmbrellaActivity.class);
                 startActivity(intent);
             }
         });
-        example2 = (Button) findViewById(R.id.example2);
+
         example3 = (Button) findViewById(R.id.example3);
     }
 }

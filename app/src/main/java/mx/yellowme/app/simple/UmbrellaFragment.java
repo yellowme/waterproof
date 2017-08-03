@@ -21,16 +21,7 @@ public class UmbrellaFragment
 
     @Override
     protected void setupAdapter() {
-        if(mViewHolder == null) {
-            Log.d("holis", "no existo :C");
-        }
-        Log.d("holis", String.valueOf(mViewHolder));
-
-        mAdapter = new UmbrellaAdapter(
-                null,
-                this,
-                mViewHolder
-        );
+        mAdapter = new UmbrellaAdapter(this, mViewHolder);
     }
 
     @Override
