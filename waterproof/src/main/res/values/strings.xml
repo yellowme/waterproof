@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Waterproof</string>
+    <string name="waterproof.loading">Loading</string>
 </resources>
