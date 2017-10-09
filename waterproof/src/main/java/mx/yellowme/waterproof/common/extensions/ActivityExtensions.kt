@@ -1,14 +1,10 @@
 package mx.yellowme.waterproof.common.extensions
 
-import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import mx.yellowme.waterproof.R
-
 
 /**
  * Created by luisburgos on 9/20/17.
@@ -50,11 +46,4 @@ fun FragmentActivity.replaceFragment(fragment: Fragment, frameId: Int, masterDet
             addToBackStack(it)
         }
     }
-}
-
-fun Fragment.showKeyboardOn(editText: EditText) { activity.showKeyboardOn(editText) }
-
-fun FragmentActivity.showKeyboardOn(editText: EditText) {
-    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
 }
