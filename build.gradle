@@ -2,12 +2,16 @@
 
 buildscript {
     ext.kotlin_version = '1.2.31'
+    ext.anko_version = '0.10.1'
+    ext.build_tools = '3.0.0-beta7'
     repositories {
+        google()
         jcenter()
         google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -24,4 +28,11 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    support = '27.1.0'
+    constraintLayout = '1.0.2'
+    espressoCore = '3.0.1'
+    junit = '4.12'
 }

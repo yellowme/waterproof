@@ -1,0 +1,24 @@
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/wpRefreshLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/wpRecyclerView"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            android:paddingTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <include
+            layout="@layout/waterproof_list_elements_empty_state"/>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
