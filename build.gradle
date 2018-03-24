@@ -1,9 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.31'
-    ext.anko_version = '0.10.1'
-    ext.build_tools = '3.0.0-beta7'
+    ext.kotlin_version= '1.2.31'
     repositories {
         google()
         jcenter()
@@ -35,4 +33,6 @@ ext {
     constraintLayout = '1.0.2'
     espressoCore = '3.0.1'
     junit = '4.12'
+    dagger = '2.14.1'
+    anko = '0.10.4'
 }
