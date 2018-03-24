@@ -2,6 +2,7 @@ package mx.yellowme.app.simple
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 
 import mx.yellowme.app.R
 

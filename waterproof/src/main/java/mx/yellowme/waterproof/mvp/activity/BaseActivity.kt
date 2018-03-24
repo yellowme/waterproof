@@ -18,13 +18,13 @@ import javax.inject.Inject
  */
 abstract class BaseActivity<Presenter> : DaggerAppCompatActivity(), BaseView {
 
+    protected abstract val layout: Int
+
     protected open val mProgressBar: ProgressBar?
-        get() = findViewById(progressBarId)
+        get() = findViewById(R.id.progressBar)
 
     protected open val mProgressBarMessage: TextView?
-        get() = findViewById(progressBarMessageId)
-
-    protected abstract val layout: Int
+        get() = findViewById(R.id.progressBarMessage)
 
     protected open val mainContentView: ViewGroup?
         get() = findViewById(android.R.id.content)
@@ -32,18 +32,14 @@ abstract class BaseActivity<Presenter> : DaggerAppCompatActivity(), BaseView {
     protected open val progressBarMessage: String?
         get() = null
 
-    protected open val progressBarId: Int
-        get() = R.id.progressBar
-
-    protected open val progressBarMessageId: Int
-        get() = R.id.progressBarMessage
+    protected abstract fun setupActivity()
 
     @JvmField @Inject
-    var mPresenter : Presenter? = null
+    var presenter : Presenter? = null
 
     override fun onDestroy() {
         super.onDestroy()
-        mPresenter = null
+        presenter = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,13 +49,8 @@ abstract class BaseActivity<Presenter> : DaggerAppCompatActivity(), BaseView {
 
     protected open fun setView(contentViewID: Int) {
         setContentView(contentViewID)
-        bindViews()
         setupActivity()
     }
-
-    protected abstract fun setupActivity()
-
-    protected abstract fun bindViews()
 
     override fun setProgressIndicator(active: Boolean, blockInteraction: Boolean) {
         mProgressBar?.apply {
