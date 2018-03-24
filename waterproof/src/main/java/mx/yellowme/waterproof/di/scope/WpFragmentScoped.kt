@@ -1,4 +1,4 @@
-package mx.yellowme.app.di
+package mx.yellowme.waterproof.di.scope
 
 import javax.inject.Scope
 
@@ -8,4 +8,4 @@ import javax.inject.Scope
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
-annotation class FragmentScoped
+annotation class WpFragmentScoped

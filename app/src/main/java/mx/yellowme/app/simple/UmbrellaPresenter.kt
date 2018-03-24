@@ -12,7 +12,7 @@ class UmbrellaPresenter(mView: SimpleView<Umbrella>) : SimplePresenter<Umbrella>
     override fun loadElement(forceUpdate: Boolean) {
         // load by Database or Rest API
         val umbrella = createDummyUmbrella()
-        view!!.showElement(umbrella)
+        view?.showElement(umbrella)
     }
 
     private fun createDummyUmbrella(): Umbrella {

@@ -7,16 +7,16 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import dagger.android.support.DaggerAppCompatActivity
 import mx.yellowme.waterproof.R
-import mx.yellowme.waterproof.mvp.BaseView
-import mx.yellowme.waterproof.utils.WPmakeGone
-import mx.yellowme.waterproof.utils.WPmakeVisible
+import mx.yellowme.waterproof.mvp.WpView
+import mx.yellowme.waterproof.utils.wpMakeGone
+import mx.yellowme.waterproof.utils.wpMakeVisible
 import org.jetbrains.anko.design.snackbar
 import javax.inject.Inject
 
 /**
  * Created by migdonio on 23/03/18.
  */
-abstract class BaseActivity<Presenter> : DaggerAppCompatActivity(), BaseView {
+abstract class WpActivity<Presenter> : DaggerAppCompatActivity(), WpView {
 
     protected abstract val layout: Int
 
@@ -60,14 +60,14 @@ abstract class BaseActivity<Presenter> : DaggerAppCompatActivity(), BaseView {
                             WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
                 }
 
-                WPmakeVisible()
+                wpMakeVisible()
                 mProgressBarMessage?.text = progressBarMessage ?: ""
             } else {
                 if(blockInteraction) {
                     window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 }
 
-                WPmakeGone()
+                wpMakeGone()
             }
         }
     }

@@ -4,6 +4,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import mx.yellowme.app.MainActivity
 import mx.yellowme.app.MainModule
+import mx.yellowme.waterproof.di.scope.WpActivityScoped
 
 /**
  * Created by migdonio on 23/03/18.
@@ -11,7 +12,7 @@ import mx.yellowme.app.MainModule
 @Module
 abstract class ActivityBindingModule {
 
-    @ActivityScoped
+    @WpActivityScoped
     @ContributesAndroidInjector(modules = [MainModule::class])
     abstract fun mainActivity(): MainActivity
 }

@@ -1,4 +1,4 @@
-package mx.yellowme.app.di
+package mx.yellowme.waterproof.di
 
 import android.app.Application
 import android.content.Context
@@ -9,7 +9,7 @@ import dagger.Module
  * Created by migdonio on 23/03/18.
  */
 @Module
-abstract class AppModule {
+abstract class WpAppModule {
 
     @Binds
     abstract fun bindContext(application : Application) : Context

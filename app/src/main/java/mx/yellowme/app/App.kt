@@ -7,7 +7,7 @@ import mx.yellowme.app.di.DaggerAppComponent
 /**
  * Created by migdonio on 23/03/18.
  */
-class WaterproofApplication : DaggerApplication() {
+class App : DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         return DaggerAppComponent
                 .builder()

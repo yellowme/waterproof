@@ -2,9 +2,9 @@ package mx.yellowme.waterproof
 
 import android.view.View
 
-import mx.yellowme.waterproof.mvp.BaseView
+import mx.yellowme.waterproof.mvp.WpView
 
-interface WaterproofView : BaseView {
+interface WaterproofView : WpView {
     val mainLayoutResource: Int
     fun bindViews(root: View)
 }

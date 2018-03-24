@@ -4,10 +4,10 @@ import android.content.Intent
 import kotlinx.android.synthetic.main.activity_main.*
 
 import mx.yellowme.app.simple.UmbrellaActivity
-import mx.yellowme.waterproof.mvp.activity.BaseActivity
+import mx.yellowme.waterproof.mvp.activity.WpActivity
 
 class MainActivity :
-        BaseActivity<MainPresenter>(),
+        WpActivity<MainPresenter>(),
         MainContract.View {
 
     override val layout: Int

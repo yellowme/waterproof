@@ -1,6 +1,6 @@
 package mx.yellowme.waterproof.mvp
 
-interface BaseView {
+interface WpView {
     fun setProgressIndicator(active: Boolean, blockInteraction: Boolean = false)
 
     fun display(message: String)

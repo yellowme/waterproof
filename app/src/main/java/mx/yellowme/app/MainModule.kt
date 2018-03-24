@@ -2,7 +2,7 @@ package mx.yellowme.app
 
 import dagger.Binds
 import dagger.Module
-import mx.yellowme.app.di.ActivityScoped
+import mx.yellowme.waterproof.di.scope.WpActivityScoped
 
 /**
  * Created by migdonio on 23/03/18.
@@ -10,11 +10,11 @@ import mx.yellowme.app.di.ActivityScoped
 @Module
 abstract class MainModule {
 
-    @ActivityScoped
+    @WpActivityScoped
     @Binds
     abstract fun dispatchPresenter(presenter: MainPresenter) : MainContract.Presenter
 
-    @ActivityScoped
+    @WpActivityScoped
     @Binds
     abstract fun dispatchView(view : MainActivity) : MainContract.View
 }

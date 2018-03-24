@@ -1,4 +1,4 @@
-package mx.yellowme.app.di
+package mx.yellowme.waterproof.di.scope
 
 import javax.inject.Scope
 
@@ -8,4 +8,4 @@ import javax.inject.Scope
 @MustBeDocumented
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ActivityScoped
+annotation class WpActivityScoped

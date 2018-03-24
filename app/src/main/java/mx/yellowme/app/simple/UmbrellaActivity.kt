@@ -18,9 +18,8 @@ class UmbrellaActivity : AppCompatActivity() {
             if (savedInstanceState != null) {
                 return
             }
-
             umbrellaFragment = UmbrellaFragment()
-            umbrellaFragment!!.arguments = intent.extras
+            umbrellaFragment?.arguments = intent.extras
             supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_container, umbrellaFragment).commit()
         }

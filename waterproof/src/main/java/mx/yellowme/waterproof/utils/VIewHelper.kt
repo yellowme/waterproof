@@ -6,10 +6,10 @@ import android.view.View
  * Created by migdonio on 23/03/18.
  */
 
-fun View.WPmakeVisible() {
+fun View.wpMakeVisible() {
     visibility = View.VISIBLE
 }
 
-fun View.WPmakeGone() {
+fun View.wpMakeGone() {
     visibility = View.GONE
 }

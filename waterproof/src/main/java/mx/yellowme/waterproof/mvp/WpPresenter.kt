@@ -1,12 +1,12 @@
 package mx.yellowme.waterproof.mvp
 
 /**
- * Base class for common presenters that frequently uses [BaseView]
- * This class depends on a concrete view that inherits from [BaseView]
+ * Base class for common presenters that frequently uses [WpView]
+ * This class depends on a concrete view that inherits from [WpView]
  */
-abstract class BasePresenter<ConcreteView : BaseView>(
+abstract class WpPresenter<ConcreteView : WpView>(
         /**
-         * Concrete implementation of BaseView.
+         * Concrete implementation of WpView.
          */
         protected var view: ConcreteView?) {
 
